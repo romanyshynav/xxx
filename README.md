@@ -1,45 +1,46 @@
-1. `src/main/resources/app.env` - configurations for docker-compose
-- Create LDAP service and configure  
-<b> xxxxxx </b>
-#### [How it works ](#user-content-how-it-works)
-## How it works
+#### [How to work with file ](#user-content-how-to-work-with-file)
+#### [How to work online ](#user-content-how-to-work-online)
+#### [How to install local GraphViz ](#user-content-how-to-install-local-graphviz)
+#### [How to use terminal ](#user-content-how-to-use-terminal)
+#### [How to use GVEdit? ](#user-content-how-to-use-GVEdit?)
+#### [Graph structure ](#user-content-graph-structure)
+#### [How to work with code ](#user-content-how-to-work-with-code)
 
-## Як працювати з `".dot"` файлом?
-Створити та зберегти файл у форматі `".dot"`. Його можна редагувати через:
- - блокнот,
- - локальну графічну оболонку,
- - скопіювати код з `".dot"-файлу` в он-лайн редактор 
- [GraphVizOnline](https://dreampuf.github.io/GraphvizOnline/), доповнити, потім скопіювати назад і 
- зберегти <b>(найкраще рішення)</b>
+## How to work with file?
+ Create and save a `".dot"-file`. It can be edited using:
+   - Notepad
+   - local GUI,
+   - copy the code from the `".dot"-file` to the online editor
+ [GraphVizOnline](https://dreampuf.github.io/GraphvizOnline/), provide codding, then copy back 
+ and save <b> (best solution) </b>.
 
-## Як працювати он-лайн?
-Для зручності в роботі краще використовувати он-лайн редактор - 
+## How to work online?
+   For convenience, it is better to use an online editor -
 [GraphVizOnline](https://dreampuf.github.io/GraphvizOnline/).	
-Він виводить діаграму лише на екран результат, але не зберігає її у файл. Тому після роботи 
-потрібно копіювати код у файл на комп'ютері з розширенням `".dot"`. А далі перетворити цей файл 
-у потрібний вихідний формат (`png, pdf, svg, ...`) через локальну оболонку або ж через термінал.
+It only displays the chart on the result screen, but does not save it to a file. So after work
+you need to copy the code to a file on your computer with the extension`".dot"`. And then convert this 
+file in the desired output format(`png, pdf, svg, ...`) using the local GUI or the terminal (CMD).
 
-## Як встановити локальний GraphViz?
-Для <b>Windows</b> (32, 64) -  7, 8, 10  потрібно скачати та встановити локальну програму `GVEdit`  -
+## How to install local GraphViz?
+For <b>Windows</b> (32, 64) - 7, 8, 10 you need to download and install the local program `GVEdit` -
 [Download GVEdit](https://www.softsalad.ru/software/razrabotka-po/instrumenty/graphviz).  
-На <b>інших операційних системах</b> GraphViz не працює. Тому потрібно працювати через термінал. Для
-цього потрібно встановити термінал з сайту - 
+On <b> other operating systems </b> GraphViz does not work . Therefore it is necessary to work through 
+the terminal. You need to install a terminal from the site -
 [Download Terminal](https://graphviz.org/download/).
 
-## Як працювати через термінал?
-Для <b>Windows</b> його встановлювати не потрібно. Для цього використовуємо програму `GVEdit`. 
-Для <b>інших операційних систем</b> потрібно встановити термінал з сайту - 
+## How to use terminal?
+You do not need to install it for <b> Windows </b>. To do this, we use the program `GVEdit`.
+For <b> other operating systems </b> you need to install a terminal from the site -
 [Download Terminal](https://graphviz.org/download/).  
-Подивитись версію. Не факт що при інсталяції решта команд працюватиме.
+See the version.
 ```
 dot -v
 ```
-В консолі потрібно перейти у директорію з `.dot-файлами`:
+You need to go to the directory with `.dot-файлами`:
 ```
-cd шлях_до_файлу
+cd path_to_folder
 ```
-Тепер з вказаної директорії можна перетворити `".dot"-файли` у довільний формат. Можна поміняти 
-місцями вхідний та вихідний файли:
+Now you can now convert `".dot "-files` to any format from the specified directory:
 ```
 dot -Tpng -oOutput.png Input.dot
 dot -Tpdf -oOutput.pdf Input.dot
@@ -48,34 +49,33 @@ dot -Tjpeg -oOutput.jpg Input.dot
 dot -Tsvg -oOutput.svg Input.dot
 ```
 
-## Як працювати з GVEdit?
-1. `File -> Open -> місце на диску`  
-Відкрити потрібний `.dot-файл` та редагувати його вмістиме. Буде два віконця. Одне для редагування 
-коду, друге з його візуальним представленням.  
-2. `Graph -> Settings -> Наш проект використовує "Layout Engine - dot", вибрати довільний 
-формат "Output File Type", місце збереження "Output File Name" -> OK`  
-Перетворити `.dot-файл` у довільний формат.
+## How to use GVEdit?
+1. `File -> Open -> path_to_file`  
+Open the desired `.dot-file` and edit it. There will be two windows. One to edit
+code, the second with its visual representation.
+2. `Graph -> Settings -> we use "Layout Engine - dot", choose desired format"Output File Type", 
+path to save "Output File Name" -> OK`  
+Convert `.dot-file` to any format.
+ 
+ ## Graph structure
+- **Block-1: Variables**, where variables are listed. <b> Variables </b> are our blocks in between 
+arrows will be drawn. Here is their name, relations, style. For correct display it is required
+make sure that the names of the variables are not repeated. For identical variable names we add in
+end character `" _ "`. That way we will know that they are <b> unique </b>.
+- **Block-2: Relations like "Service -> Topic (SNS) -> Event"**, where we display separately
+<b> each service </b>. These blocks are marked in gray. Each block is a separate area of visibility.
+Here are the relationships between the blocks inside service(`Service -> Topic -> Event`), 
+styles for arrows and background color blocks.
+- **Block-3: Relations like "Event -> Services"** displays the <b>relationship between all services</b>
+ (`Event -> Service`). Styles for these arrows (relations) are also listed here.
 
-## Яка структура графу?
-- **Block-1: Variables**, де перелічуються змінні. <b>Змінні</b> - це наші блоки, між якими 
-малюватимуться стрілочки. 
-Тут описується їх назва, відображення, стилі. Для правильності відображення потрібно 
-слідкувати щоб назви змінних не повторювались. Для однакових назв змінних ми додаємо в 
-кінець символ `"_"`. Так ми знатимемо що вони <b>унікальні</b>.
-- **Block-2: Relations like "Service -> Topic (SNS) -> Event"**, де ми окремо відображаємо
-<b>кожен сервіс</b>. Ці блоки помічені сірим кольором. Кожен блок це окрема область видимості. 
-Тут прописані відношення між блоками в середині 
-сервісу (`Service -> Topic -> Event`), стилі для стрілочок та фонового кольору блоків.
-- **Block-3: Relations like "Event -> Services"** відображає <b>відношення між всіма сервісами</b>
- (`Event -> Service`). Також тут прописані стилі для цих стрілочок.
-
-## Як працювати з `.dot` кодом?
-Стиль атрибутів для ноди чи стрілочки діє для тої <b>області видимості</b>, в якій він зазначений, 
-а також на <b>вкладені</b> в неї області видимості. Наприклад, для ноди:   
+## How to work with code?
+Style-attribute for the node or arrow applies to the <b> scope </b> in which it is specified,
+and <b> nested </b> scopes. For example, for a node:   
 `node [xlabel = "SQS", shape = "oval", color = "chartreuse4", fillcolor = "chartreuse1"]` -
- налаштування на всю область видимості.  
-Щоб ноди, які йдуть після неї не спадкували атрибут `xlabel= "SQS"`, пишемо нижче по коду:  
-`node [xlabel = ""]` - тобто перевизначаємо його порожнім символом.  
-Інші атрибути будуть спадкуватись. Якщо вони нас не влаштовують - просто їх перевизначаємо.  
+ settings for the entire scope.  
+So that the nodes that follow it do not inherit the style-attribute `xlabel= "SQS"`, write below the code:  
+`node [xlabel = ""]` - we redefine it with an empty symbol.  
+Other attributes will be inherited. If they do not suit us - just redefine them.  
 For more details, check this documentation:
 [Tutorial](https://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html#colors)
