@@ -8,7 +8,7 @@
 #### [How to work with code ](#user-content-how-to-work-with-code)
 
 ## How to work with file?
- Create and save a `".dot"-file`. It can be edited using:
+ Create and save file with extention `".dot"`. It can be edited using:
    - Notepad
    - local GUI,
    - copy the code from the `".dot"-file` to the online editor
