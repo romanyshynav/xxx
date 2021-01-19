@@ -3,7 +3,7 @@
 #### [How to work online ](#user-content-how-to-work-online)
 #### [How to install local GraphViz ](#user-content-how-to-install-local-graphviz)
 #### [How to use terminal ](#user-content-how-to-use-terminal)
-#### [How to use GVEdit? ](#user-content-how-to-use-gvedit?)
+#### [How to use GVEdit ](#user-content-how-to-use-gvedit)
 #### [Graph structure ](#user-content-graph-structure)
 #### [How to work with code ](#user-content-how-to-work-with-code)
 
